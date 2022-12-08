@@ -1,13 +1,18 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/records/records"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#aaeda1",
+    "navigationBarTitleText": "Recommend",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "list":[{"pagePath":"pages/index/index","text":"Daily"},
+    {"pagePath":"pages/records/records","text":"Records"}]
+   
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
