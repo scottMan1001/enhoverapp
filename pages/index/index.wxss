@@ -15,5 +15,18 @@
 }
 
 .usermotto {
-  margin-top: 200px;
+  margin-top: 20rpx;
+  width:100%
+  
+}
+.usermotto > text{
+  padding-left: 10rpx;
+}
+.viedoHover{
+  background-color: red;
+}
+#myvideo{
+  width:100vw;
+  height:30vh;
+  margin-top: 10rpx;
 }
