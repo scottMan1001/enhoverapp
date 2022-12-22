@@ -2,6 +2,7 @@
   "pages":[
     "pages/index/index",
     "pages/records/records"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -11,7 +12,7 @@
   },
   "tabBar":{
     "list":[{"pagePath":"pages/index/index","text":"Daily"},
-    {"pagePath":"pages/records/records","text":"Records"}]
+    {"pagePath":"pages/records/records","text":"Upload"}]
    
   },
   "style": "v2",

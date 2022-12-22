@@ -1,0 +1,10 @@
+<view class="clearfix">
+    <view class="weui-uploader__file position" wx:for="{{fileList}}" wx:for-item="item" wx:key="*this">
+        <image src="{{item.url}}" data-index="{{index}}" wx:if="{{item.type === 'image'}}" mode="aspectFill" bindtap="previewImg" class="list-img weui-uploader__img"></image>
+        <video src="{{item.url}}" data-index="{{index}}" wx:if="{{item.type === 'video'}}" bindtap="previewImg" class="list-img weui-uploader__img"></video>
+        <!-- <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg">
+            <icon type="clear" size="20" color="#fc5531"></icon>
+        </view> -->
+    </view>
+    <view class="upload-img-btn weui-uploader__input-box" bindtap="chooseImg"></view>
+</view>
