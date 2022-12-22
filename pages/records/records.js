@@ -8,7 +8,7 @@ Page({
     console.log(detail.fileList[0].url);
 
     const uploadTask = wx.uploadFile({
-      url: "http://192.168.0.101:8090/fileVideo/fileUpload", //仅为示例，非真实的接口地址
+      url: "http://localhost:3000/fileVideo/fileUpload", //仅为示例，非真实的接口地址
       filePath: filePath,
       name: "file",
 

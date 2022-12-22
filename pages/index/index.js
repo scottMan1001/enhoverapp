@@ -15,7 +15,7 @@ Page({
       wx.canIUse("open-data.type.userNickName") &&
       wx.canIUse("open-data.type.userCountry"), // 如需尝试获取用户信息可改为false
 
-    videoUrl: "http://192.168.0.101:8090/fileVideo/daily?timestr=" + Date.now(),
+    videoUrl: "http://localhost:3000/fileVideo/daily?timestr=" + Date.now(),
     videoDomRefresh: true,
     everyDayRecommendLabel: "Daily recommendation",
   },
