@@ -1,4 +1,5 @@
 // index.js
+//7bb59c1d1247150a30fc1fa8e50068aa
 // 获取应用实例
 const app = getApp();
 
@@ -11,29 +12,70 @@ Page({
     canIUseGetUserProfile: false,
     canIUseOpenData:
       wx.canIUse("open-data.type.userAvatarUrl") &&
-      wx.canIUse("open-data.type.userNickName"), // 如需尝试获取用户信息可改为false
+      wx.canIUse("open-data.type.userNickName") &&
+      wx.canIUse("open-data.type.userCountry"), // 如需尝试获取用户信息可改为false
 
-    videoUrl: "http://localhost:8000/video/1.mp4",
+    videoUrl: "http://localhost:3000/fileVideo/daily?timestr=" + Date.now(),
+    videoDomRefresh: true,
     everyDayRecommendLabel: "Daily recommendation",
   },
   videoErrorCallback: function (e) {
     console.log("视频错误信息:" + e.detail.errMsg);
   },
-  screenFullFunc: function (e) {
-    return;
-  },
+
   // 事件处理函数
   bindViewTap() {
     wx.navigateTo({
       url: "../logs/logs",
     });
   },
+  /**
+   * 监听 TabBar 切换点击
+   */
+  // onTabItemTap: function (item) {
+  //   console.log(item);
+  // },
   onLoad() {
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true,
-      });
-    }
+    wx.login({
+      success: (res) => {
+        wx.request({
+          url: "http://192.168.0.101:8090/weixin", //仅为示例，并非真实的接口地址
+          data: {
+            code: res.code,
+          },
+          header: {
+            "content-type": "application/json", // 默认值
+          },
+          success(res) {
+            console.log(res.data);
+          },
+          fail(err) {
+            console.log(err);
+          },
+        });
+      },
+    });
+  },
+  onHide(evt) {
+    this.setData({
+      videoDomRefresh: false,
+    });
+    // const videoDom = wx.createVideoContext("myvideo");
+    // videoDom.pause();
+  },
+  onShow(evt) {
+    this.setData({
+      videoDomRefresh: true,
+    });
+    setTimeout(() => {
+      const videoDom = wx.createVideoContext("myvideo");
+      videoDom.pause();
+    }, 500);
+    // if (!this.data.videoDomRefresh) {
+    // this.setData({
+    //   videoUrl: "http://192.168.0.101:8090/fileVideo/daily",
+    // });
+    // }
   },
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗

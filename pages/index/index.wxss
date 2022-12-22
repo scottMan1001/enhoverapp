@@ -16,11 +16,12 @@
 
 .usermotto {
   margin-top: 20rpx;
-  width:100%
+
   
 }
 .usermotto > text{
-  padding-left: 10rpx;
+  display: inline-block;
+  padding-left: 20rpx;
 }
 .viedoHover{
   background-color: red;
@@ -28,5 +29,6 @@
 #myvideo{
   width:100vw;
   height:30vh;
+  border-radius: 20rpx;
   margin-top: 10rpx;
 }
