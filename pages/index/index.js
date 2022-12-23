@@ -15,7 +15,7 @@ Page({
       wx.canIUse("open-data.type.userNickName") &&
       wx.canIUse("open-data.type.userCountry"), // 如需尝试获取用户信息可改为false
 
-    videoUrl: "http://localhost:3000/fileVideo/daily?timestr=" + Date.now(),
+    videoUrl: "http://localhost:3000/fileVideo/daily",
     videoDomRefresh: true,
     everyDayRecommendLabel: "Daily recommendation",
   },
@@ -56,26 +56,11 @@ Page({
       },
     });
   },
-  onHide(evt) {
-    this.setData({
-      videoDomRefresh: false,
-    });
-    // const videoDom = wx.createVideoContext("myvideo");
-    // videoDom.pause();
-  },
+  onHide(evt) {},
   onShow(evt) {
     this.setData({
-      videoDomRefresh: true,
+      videoUrl: "http://localhost:3000/fileVideo/daily?timestr=" + Date.now(),
     });
-    setTimeout(() => {
-      const videoDom = wx.createVideoContext("myvideo");
-      videoDom.pause();
-    }, 500);
-    // if (!this.data.videoDomRefresh) {
-    // this.setData({
-    //   videoUrl: "http://192.168.0.101:8090/fileVideo/daily",
-    // });
-    // }
   },
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
