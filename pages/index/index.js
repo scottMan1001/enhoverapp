@@ -6,7 +6,6 @@ const app = getApp();
 Page({
   data: {
     videoUrl: `${url}/fileVideo/daily`,
-
     everyDayRecommendLabel: "Daily recommendation",
   },
   videoErrorCallback: function (e) {
@@ -42,8 +41,12 @@ Page({
   },
 
   onShow(evt) {
-    this.setData({
-      videoUrl: `${url}/fileVideo/daily?timestr=` + Date.now(),
-    });
+    const flag = wx.getStorageSync("shouldRefresh");
+    if (flag) {
+      wx.setStorageSync("shouldRefresh", false);
+      this.setData({
+        videoUrl: `${url}/fileVideo/daily?timestr=` + Date.now(),
+      });
+    }
   },
 });

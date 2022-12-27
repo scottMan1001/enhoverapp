@@ -1,6 +1,6 @@
 <view style="padding:200rpx 0">
     <text>History view:</text>
-    <swiper indicator-dots="true">
+    <swiper indicator-dots="true" bindchange="changeFunc" current="0">
         <block wx:for="{{historyList}}" wx:key="*this">
             <swiper-item>
                 <video id="myvideo-{{index}}" src="{{videoUrl+urlPath[index]}}" class="swiper-item" enable-play-gesture object-fit="fill" />

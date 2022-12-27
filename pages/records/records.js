@@ -15,12 +15,14 @@ Page({
       name: "file",
 
       success(res) {
+        wx.setStorageSync("shouldRefresh", true);
         wx.showToast({
           title: "Uploaded！",
           icon: "success",
         });
       },
       fail(e) {
+        wx.setStorageSync("shouldRefresh", false);
         wx.showToast({
           title: "Fail！",
           icon: "error",
