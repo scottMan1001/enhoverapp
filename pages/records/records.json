@@ -1,5 +1,5 @@
 {
   "component": true,
-  "navigationBarTitleText": "Study history",
+  "navigationBarTitleText": "UpLoad Zone",
   "usingComponents": {"upload":"/components/upload/upload"}
 }
