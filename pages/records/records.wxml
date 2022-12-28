@@ -1,3 +1,6 @@
 <view class="container">
     <upload bind:getUrl="getUrl"></upload>
+    <text>
+        You should push one video every day!
+    </text>
 </view>

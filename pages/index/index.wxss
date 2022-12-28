@@ -32,3 +32,9 @@
   border-radius: 20rpx;
   margin-top: 10rpx;
 }
+navigator {
+  margin-top:10vh
+}
+.navigator-hover {
+  color:blue;
+}
